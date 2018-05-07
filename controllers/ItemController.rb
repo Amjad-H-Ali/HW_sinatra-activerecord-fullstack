@@ -1,5 +1,23 @@
 class ItemController < ApplicationController
 
+
+
+# Must be logged in (similar to middleware in express)
+
+before do
+	if !session[:logged_in]
+		session[:message] = "You must be logged in to do that"
+		redirect '/user/login'
+	end
+end
+
+
+
+
+
+
+
+
 	# index route
 
 	get '/' do 
