@@ -31,5 +31,18 @@ class ItemController < ApplicationController
 
 		erb :add_item 
 	end
+
+
+
+
+	post '/' do
+
+		puts "============================"
+
+		pp params
+
+		puts "============================"
+
+	end	
 	
 end		
