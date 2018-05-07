@@ -41,7 +41,24 @@ class ItemController < ApplicationController
 
 		pp params
 
+
 		puts "============================"
+
+		pp	Item
+		puts "============^^=Item Class=^^======"
+
+		# Add something with active record
+
+		@item = Item.new
+
+		@item.title = params[:title]
+
+		@item.user_id = 1 
+
+		@item.save
+
+
+		@item.to_json
 
 	end	
 	

@@ -2,6 +2,8 @@ require 'sinatra/base'
 
 require 'sinatra/activerecord'
 
+require './models/ItemModel'
+
 
 
 
