@@ -4,7 +4,14 @@ class ItemController < ApplicationController
 
 	get '/' do 
 
-		'Index route in Item Controller'	
+		@item = Item.all
+
+		@page = "Index of Items"
+
+		erb :index_item
+
+
+
 
 	end
 
@@ -58,7 +65,7 @@ class ItemController < ApplicationController
 		@item.save
 
 
-		@item.to_json
+		redirect '/items'
 
 	end	
 	
