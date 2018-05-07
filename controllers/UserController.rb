@@ -43,6 +43,9 @@ class UserController < ApplicationController
 		@user = User.find_by(username: params[:username])
 
 		if @user && @user.password == params[:password]
+
+			session[:user_id] = @user.id
+
 			session[:username] = @user.username
 			session[:logged_in] = true
 			session[:message] = "Logged in as #{@user.username}"
@@ -69,6 +72,9 @@ class UserController < ApplicationController
 
 
 		@user = User.new
+
+		session[:user_id] = @user.id
+
 		@user.username = params[:username]
 		@user.password = params[:password]
 		@user.save
@@ -87,6 +93,8 @@ class UserController < ApplicationController
 
 
 get '/logout' do
+	session[:user_id] = nil
+	
 	session[:username] = nil
 	session[:logged_in] = false
 	redirect '/user/login'

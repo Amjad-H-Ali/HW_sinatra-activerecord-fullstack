@@ -81,7 +81,7 @@ end
 
 		@item.title = params[:title]
 
-		@item.user_id = 1 
+		@item.user_id = session[:user_id]
 
 		@item.save
 
