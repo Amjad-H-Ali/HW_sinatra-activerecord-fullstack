@@ -15,6 +15,8 @@ require './controllers/ApplicationController'
 
 require './controllers/ItemController'
 
+require './controllers/UserController'
+
 
 
 # Routes
@@ -26,6 +28,12 @@ map('/') {
 
 map('/items') {
 	run ItemController
+}
+
+
+
+map('/user') {
+	run UserController
 }
 
 
