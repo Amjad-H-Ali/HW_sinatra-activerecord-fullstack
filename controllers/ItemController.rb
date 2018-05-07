@@ -42,6 +42,9 @@ class ItemController < ApplicationController
 
 
 
+
+	# Create Route
+
 	post '/' do
 
 		puts "============================"
@@ -72,6 +75,8 @@ class ItemController < ApplicationController
 
 
 
+	# Delete route
+
 
 	delete '/:id' do
 
@@ -82,8 +87,57 @@ class ItemController < ApplicationController
 
 		redirect '/items'
 
+	end
+	
+
+
+
+
+
+	# edit route
+	get '/edit/:id' do
+
+
+		@item = Item.find params[:id]
+
+
+		@page = "Edit Item #{@item.id}" 
+
+		erb :edit_item
 	end	
 
+
+
+
+
+	# update route
+
+
+	patch '/:id' do
+
+
+		# like i said -- lots of ways to do this.  
+		# http://api.rubyonrails.org/classes/ActiveRecord/FinderMethods.html
+		# http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-where
+
+
+		@items = Item.where(id: params[:id]) 
+
+		# note: .where method gives us an array (Why?). So we must index. 
+		# Might there have been a more appropriate query method to use 
+		# instead of .where ?
+
+
+		@item = @items[0]
+
+		@item.title = params[:title]
+		@item.save
+
+
+		redirect '/items'
+
+		
+	end
 
 
 

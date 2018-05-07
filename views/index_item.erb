@@ -7,7 +7,7 @@
 
 		<% @item.each do |item| %>
 
-		
+
 
 			<form action="/items/<%= item.id %>" method="POST">
 
@@ -19,6 +19,8 @@
 				<button>Delete</button>
 
 			</form>	
+
+			<a href="/items/edit/<%= item.id %>">Edit</a>
 
 
 
