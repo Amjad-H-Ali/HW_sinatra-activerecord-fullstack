@@ -5,6 +5,14 @@ class ApplicationController < Sinatra::Base
 	Bundler.require()
 
 
+	ActiveRecord::Base.establish_connection(
+
+		:adapter => 'postgresql',
+		:database => 'item'
+
+	)
+
+
 	set :views, File.expand_path('../views/', File.dirname(__FILE__)) 
 
 
