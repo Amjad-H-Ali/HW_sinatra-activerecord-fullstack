@@ -9,7 +9,7 @@ CREATE TABLE users (
 
 	username VARCHAR(32),
 
-	password VARCHAR(60)
+	password_digest VARCHAR(60)
 
 );
 

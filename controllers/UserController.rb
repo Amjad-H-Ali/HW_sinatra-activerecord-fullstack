@@ -40,9 +40,11 @@ class UserController < ApplicationController
 
 	post '/login' do
 
+		@pw = params[:password]
+
 		@user = User.find_by(username: params[:username])
 
-		if @user && @user.password == params[:password]
+		if @user && @user.authenticate(@pw)
 
 			session[:user_id] = @user.id
 
@@ -94,7 +96,7 @@ class UserController < ApplicationController
 
 get '/logout' do
 	session[:user_id] = nil
-	
+
 	session[:username] = nil
 	session[:logged_in] = false
 	redirect '/user/login'
