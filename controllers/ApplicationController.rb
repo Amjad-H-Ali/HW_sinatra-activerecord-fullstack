@@ -5,12 +5,30 @@ class ApplicationController < Sinatra::Base
 	Bundler.require()
 
 
+
 	ActiveRecord::Base.establish_connection(
 
 		:adapter => 'postgresql',
 		:database => 'item'
 
 	)
+
+
+
+	# Middleware
+
+		# MethodOverride
+
+	use Rack::MethodOverride
+	set :method_override, true	
+
+
+
+
+
+
+
+
 
 
 	set :views, File.expand_path('../views/', File.dirname(__FILE__)) 

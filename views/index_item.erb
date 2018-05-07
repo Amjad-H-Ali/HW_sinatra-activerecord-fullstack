@@ -7,7 +7,21 @@
 
 		<% @item.each do |item| %>
 
-			<li> <%=item.title %> </li>
+		
+
+			<form action="/items/<%= item.id %>" method="POST">
+
+
+				<input type="hidden" name="_method" value="DELETE" />
+
+				<li> <%=item.title %> </li>
+
+				<button>Delete</button>
+
+			</form>	
+
+
+
 
 			
 		<% end %>
