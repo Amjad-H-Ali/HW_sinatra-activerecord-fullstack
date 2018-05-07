@@ -68,6 +68,9 @@ class ItemController < ApplicationController
 		@item.save
 
 
+		session[:message] = "You added item \##{@item.id}."
+
+
 		redirect '/items'
 
 	end	
@@ -83,6 +86,8 @@ class ItemController < ApplicationController
 		@item = Item.find params[:id]
 
 		@item.destroy
+
+		session[:message] = "You deleted item \##{@item.id}"
 
 
 		redirect '/items'
@@ -134,9 +139,12 @@ class ItemController < ApplicationController
 		@item.save
 
 
+		session[:message] = "You updated item \##{@item.id}"
+
+
 		redirect '/items'
 
-		
+
 	end
 
 

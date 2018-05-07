@@ -18,6 +18,17 @@
 
 
 
+  	<% if session[:message] %>
+		<p class="msg">
+			<%= session[:message] %>
+		</p>
+			<% session[:message] = nil %>
+	<% end %>
+
+
+
+
+
 
 	<h1>Awesome ToDo List App</h1>
 

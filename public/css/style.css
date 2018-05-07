@@ -1,3 +1,12 @@
 body {
 	background-color: rgb(230, 230, 230);
 }
+
+
+
+/*SESSION*/
+p.msg {
+	background: lightgreen;
+	color: brown;
+	border: 1px solid black;
+}
