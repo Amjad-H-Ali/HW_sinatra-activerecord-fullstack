@@ -22,7 +22,19 @@ end
 
 	get '/' do 
 
-		@item = Item.all
+		# @item = Item.all
+
+
+
+
+		@user = User.find session[:user_id]
+
+	
+		@items = @user.items
+
+
+
+
 
 		@page = "Index of Items"
 
