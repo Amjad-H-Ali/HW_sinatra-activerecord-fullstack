@@ -5,13 +5,16 @@ class ApplicationController < Sinatra::Base
 	Bundler.require()
 
 
+	set :views, File.expand_path('../views/', File.dirname(__FILE__)) 
+
+
 
 
 
 
 	get '/' do
 
-		'Server is running...'
+		erb :hello 
 		
 	end
 
@@ -22,4 +25,3 @@ end
 
 
 
-	
