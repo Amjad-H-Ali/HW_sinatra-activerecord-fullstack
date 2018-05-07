@@ -51,7 +51,7 @@ class UserController < ApplicationController
 			session[:message] = "Invalid username or password."
 			redirect '/user/login'
 		end
-		
+
 		
 	end
 
@@ -66,7 +66,19 @@ class UserController < ApplicationController
 
 
 	post '/register' do
-		params.to_json
+
+
+		@user = User.new
+		@user.username = params[:username]
+		@user.password = params[:password]
+		@user.save
+		session[:logged_in] = true
+		session[:username] = @user.username
+		session[:message] = "Thank you for registering (as #{@user.username}).  Enjoy the site!"
+		redirect '/items'
+
+
+		
 	end
 
 
