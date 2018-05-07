@@ -4,6 +4,8 @@ require 'sinatra/activerecord'
 
 require './models/ItemModel'
 
+require './models/UserModel'
+
 
 
 
