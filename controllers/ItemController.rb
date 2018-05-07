@@ -15,6 +15,20 @@ class ItemController < ApplicationController
 
 	get '/add' do
 
+		@page = "Add Item"
+
+		@action = "/items"
+
+		@method = "POST"
+
+		@placeholder = "Enter Item!"
+
+		@value = ""
+
+		@buttontext = "Add"
+
+
+
 		erb :add_item 
 	end
 	
