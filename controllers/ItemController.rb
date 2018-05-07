@@ -30,7 +30,7 @@ end
 		@user = User.find session[:user_id]
 
 	
-		@items = @user.items
+		@item = @user.items
 
 
 
